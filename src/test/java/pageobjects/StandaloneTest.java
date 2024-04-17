@@ -1,5 +1,6 @@
 package pageobjects;
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -18,6 +19,8 @@ public class StandaloneTest {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		driver.get("https://tutorialsninja.com/demo/");
 		
+		String[] products = {"MacBook"};
+		
 		Actions a = new Actions(driver);
 		WebElement deskTop=driver.findElement(By.xpath("//a[text()='Laptops & Notebooks']"));
 		a.moveToElement(deskTop).build().perform();
@@ -26,7 +29,8 @@ public class StandaloneTest {
 		
 		for(int i=0; i<=productNames.size();i++) {
 			String name=productNames.get(i).getText();
-			if(name.equalsIgnoreCase("Macbook")) {
+			List<String> Itemsneeded=Arrays.asList(products);
+			if(Itemsneeded.contains(name)) {
 				driver.findElements(By.xpath("(//span[contains(text(),'Add to Cart')])")).get(i).click();
 			}
 		}
