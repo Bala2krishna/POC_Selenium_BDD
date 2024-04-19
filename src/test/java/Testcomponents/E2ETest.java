@@ -1,4 +1,4 @@
-package pageobjects;
+package Testcomponents;
 import static org.testng.Assert.assertEquals;
 
 import java.time.Duration;
@@ -14,7 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
-public class StandaloneTest {
+public class E2ETest {
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
@@ -23,7 +23,6 @@ public class StandaloneTest {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		driver.get("https://tutorialsninja.com/demo/");
-		String cartproductname;
 		String productName = "MacBook";
 		
 		Actions a = new Actions(driver);
